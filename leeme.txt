@@ -1,0 +1,23 @@
+
+TAREA:
+1. Crear una cuenta en GitHub
+2. Elegir una PLANTILLA para el proyecto:
+	https://adminlte.io/blog/free-admin-panels/
+3. Revisar sus apuntes de POO.
+4. Crear un Proyecto en su PC, con GIT
+5. Levantar la BD en MariaDB
+6. Realizar un CRUD con POO para una tabla base.
+
+
+/***************************
+…or create a new repository on the command line
+echo "# PyTecno_IV" >> README.md
+git init
+git add README.md
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/WalterCoayla/PyTecno_IV.git
+git push -u origin main
+
+
