@@ -22,7 +22,14 @@ class CtrlCargo extends Controlador {
 
         $obj = new Cargo($id,$nombre);
         $respuesta = $obj->guardar();
-        
+
+        $this->index();
+
+    }
+    public function eliminar(){
+        $id = $_GET['id'];
+        $obj = new Cargo($id);
+        $respuesta = $obj->eliminar();
         $this->index();
 
     }
