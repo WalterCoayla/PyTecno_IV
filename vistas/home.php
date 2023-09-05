@@ -8,13 +8,16 @@
 <body>
     <h1><?=isset($titulo)?$titulo:'';?></h1>
     <h3>Bienvenido: <?=isset($usuario)?$usuario:'';?></h3>
-    <ul>
 
-    
+
+    <ul>
 <?php
-    foreach ($datos as $d) {
+    if (isset($menu))
+    foreach ($menu as $key => $value) {
         ?>
-        <li><?=$d['nombre']?></li>
+        <li>
+            <a href="?ctrl=<?=$key?>"><?=$value?></a>
+        </li>
         
         <?php
     }

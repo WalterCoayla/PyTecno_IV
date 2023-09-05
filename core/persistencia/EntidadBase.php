@@ -57,7 +57,7 @@ class EntidadBase
     public function insert($datos){
         $this->_sql->setDatos($datos);
         $this->_sql->setComando("INSERT");
-
+        # echo $this->_sql;exit();
         return $this->_bd->ejecutar($this->_sql);
     } 
  

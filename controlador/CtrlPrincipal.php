@@ -11,6 +11,7 @@ class CtrlPrincipal extends Controlador {
         # var_dump($data);exit;
 
         $datos = [
+            'menu'=>$this->getMenu(),
             'titulo'=>'Sistema IES.',
             'usuario'=>'Walter',
             'datos'=>$data['data']
@@ -18,5 +19,13 @@ class CtrlPrincipal extends Controlador {
 
         $this->mostrar('home.php',$datos);
 
+    }
+
+    public function getMenu(){
+        return [
+            'CtrlCargo'=>'Cargos',
+            'CtrlOficina'=>'Oficinas',
+            'CtrlFactorForma'=>'Factores de Forma',
+        ];
     }
 }
