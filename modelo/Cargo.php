@@ -13,11 +13,21 @@ class Cargo extends Modelo {
     public function mostrar(){
         return $this->getAll();
     }
+    public function getRegistro(){
+        return $this->getById($this->id);
+    }
     public function guardar(){
         $data=[
             'nombre'=>"'$this->nombre'"
         ];
         return $this->insert($data);
+    }
+    public function actualizar(){
+        $data=[
+            'nombre'=>"'$this->nombre'"
+        ];
+        $wh = 'id='.$this->id;
+        return $this->update($wh, $data);
     }
     public function eliminar(){
         return $this->deleteById($this->id);

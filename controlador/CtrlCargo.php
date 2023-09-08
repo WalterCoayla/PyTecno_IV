@@ -16,12 +16,31 @@ class CtrlCargo extends Controlador {
     public function nuevo(){
         $this->mostrar('cargos/formulario.php');
     }
+    public function editar(){
+        $id = $_GET['id'];
+        $obj = new Cargo($id);
+        $data = $obj->getRegistro();
+        $datos = [
+            'obj'=>$data['data'][0]
+        ];
+        $this->mostrar('cargos/formulario.php',$datos);
+    }
     public function guardar(){
         $id=$_POST['id'];
         $nombre=$_POST['nombre'];
+        $esNuevo=$_POST['esNuevo'];
 
         $obj = new Cargo($id,$nombre);
-        $respuesta = $obj->guardar();
+
+        switch ($esNuevo) {
+            case '0': # Editar
+                $respuesta = $obj->actualizar();
+                break;
+            
+            default:    #Nuevo
+                $respuesta = $obj->guardar();
+                break;
+        }
 
         $this->index();
 

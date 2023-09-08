@@ -1,37 +1,36 @@
 <?php
 require_once './core/Controlador.php';
-require_once './modelo/FactorForma.php';
+require_once './modelo/Oficina.php';
 
-class CtrlFactorForma extends Controlador {
+class CtrlOficina extends Controlador {
     public function index(){
-        $obj = new FactorForma();
+        $obj = new Oficina();
         $data = $obj->mostrar();
         # var_dump($data);exit;
         $datos = [
-            'titulo'=>'Factores de Forma',
+            'titulo'=>'Oficinas',
             'data'=>$data['data']
         ];
-        $this->mostrar('factoresForma/mostrar.php',$datos);
+        $this->mostrar('oficinas/mostrar.php',$datos);
     }
     public function nuevo(){
-        $this->mostrar('factoresForma/formulario.php');
+        $this->mostrar('oficinas/formulario.php');
     }
-
     public function editar(){
         $id = $_GET['id'];
-        $obj = new FactorForma($id);
-        $data = $obj->getFactor();
+        $obj = new Oficina($id);
+        $data = $obj->getRegistro();
         $datos = [
             'obj'=>$data['data'][0]
         ];
-        $this->mostrar('factoresForma/formulario.php',$datos);
+        $this->mostrar('oficinas/formulario.php',$datos);
     }
     public function guardar(){
         $id=$_POST['id'];
         $nombre=$_POST['nombre'];
         $esNuevo=$_POST['esNuevo'];
 
-        $obj = new FactorForma($id,$nombre);
+        $obj = new Oficina($id,$nombre);
 
         switch ($esNuevo) {
             case '0': # Editar
@@ -43,15 +42,12 @@ class CtrlFactorForma extends Controlador {
                 break;
         }
 
-        
-        
-
         $this->index();
 
     }
     public function eliminar(){
         $id = $_GET['id'];
-        $obj = new FactorForma($id);
+        $obj = new Oficina($id);
         $respuesta = $obj->eliminar();
         $this->index();
 

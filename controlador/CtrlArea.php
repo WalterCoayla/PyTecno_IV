@@ -1,37 +1,51 @@
 <?php
 require_once './core/Controlador.php';
-require_once './modelo/FactorForma.php';
+require_once './modelo/Area.php';
+require_once './modelo/Oficina.php';
 
-class CtrlFactorForma extends Controlador {
+class CtrlArea extends Controlador {
     public function index(){
-        $obj = new FactorForma();
+        $obj = new Area();
         $data = $obj->mostrar();
         # var_dump($data);exit;
         $datos = [
-            'titulo'=>'Factores de Forma',
+            'titulo'=>'Areas',
             'data'=>$data['data']
         ];
-        $this->mostrar('factoresForma/mostrar.php',$datos);
+        $this->mostrar('areas/mostrar.php',$datos);
     }
     public function nuevo(){
-        $this->mostrar('factoresForma/formulario.php');
-    }
+        $obj = new Oficina;
+        $data = $obj->mostrar();
+        $datos = [
+            'oficinas'=>$data['data']
+        ];
 
+        $this->mostrar('areas/formulario.php',$datos);
+    }
     public function editar(){
         $id = $_GET['id'];
-        $obj = new FactorForma($id);
-        $data = $obj->getFactor();
+        $obj = new Area($id);
+        $data = $obj->getRegistro();
+
+        $obj = new Oficina;
+        $dataOficina = $obj->mostrar();
+        
+        
         $datos = [
-            'obj'=>$data['data'][0]
+            'obj'=>$data['data'][0],
+            'oficinas'=>$dataOficina['data']
         ];
-        $this->mostrar('factoresForma/formulario.php',$datos);
+        $this->mostrar('areas/formulario.php',$datos);
     }
     public function guardar(){
         $id=$_POST['id'];
         $nombre=$_POST['nombre'];
+        $idOficina=$_POST['idOficina'];
+
         $esNuevo=$_POST['esNuevo'];
 
-        $obj = new FactorForma($id,$nombre);
+        $obj = new Area($id,$nombre,$idOficina);
 
         switch ($esNuevo) {
             case '0': # Editar
@@ -43,15 +57,12 @@ class CtrlFactorForma extends Controlador {
                 break;
         }
 
-        
-        
-
         $this->index();
 
     }
     public function eliminar(){
         $id = $_GET['id'];
-        $obj = new FactorForma($id);
+        $obj = new Area($id);
         $respuesta = $obj->eliminar();
         $this->index();
 
