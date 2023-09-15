@@ -27,6 +27,8 @@ class CtrlPrincipal extends Controlador {
             'CtrlOficina'=>'Oficinas',
             'CtrlFactorForma'=>'Factores de Forma',
             'CtrlArea'=>'Areas',
+            'CtrlProgramaEstudio'=>'Programas de Estudios',
+            'CtrlEstudiante'=>'Estudiantes',
         ];
     }
 }
