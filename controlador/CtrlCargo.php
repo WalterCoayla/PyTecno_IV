@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once './core/Controlador.php';
 require_once './modelo/Cargo.php';
 
@@ -11,10 +12,22 @@ class CtrlCargo extends Controlador {
             'titulo'=>'Cargos',
             'data'=>$data['data']
         ];
-        $this->mostrar('cargos/mostrar.php',$datos);
+        $home = $this->mostrar('cargos/mostrar.php',$datos,true);
+
+        $datos = [
+            'contenido'=>$home
+        ];
+        $this->mostrar('plantilla/home.php',$datos);
+
     }
     public function nuevo(){
-        $this->mostrar('cargos/formulario.php');
+
+        $home= $this->mostrar('cargos/formulario.php',null,true);
+        $datos = [
+            'contenido'=>$home
+        ];
+        $this->mostrar('plantilla/home.php',$datos);
+
     }
     public function editar(){
         $id = $_GET['id'];
@@ -23,7 +36,12 @@ class CtrlCargo extends Controlador {
         $datos = [
             'obj'=>$data['data'][0]
         ];
-        $this->mostrar('cargos/formulario.php',$datos);
+        $home=$this->mostrar('cargos/formulario.php',$datos,true);
+        $datos = [
+            'contenido'=>$home
+        ];
+        $this->mostrar('plantilla/home.php',$datos);
+
     }
     public function guardar(){
         $id=$_POST['id'];

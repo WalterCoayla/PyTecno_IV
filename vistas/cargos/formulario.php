@@ -5,15 +5,7 @@ $nombre = isset($obj['nombre'])?$obj['nombre']:'';
 $esNuevo = isset($obj['id'])?0:1; #0: No es Nuevo (Editar) / 1: Es nuevo
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-</head>
-<body>
+
     <h1>Nuevo Cargo</h1>
     <form action="?ctrl=CtrlCargo&accion=guardar" method="post">
 
@@ -28,5 +20,3 @@ $esNuevo = isset($obj['id'])?0:1; #0: No es Nuevo (Editar) / 1: Es nuevo
 
     </form>
     <a href="?ctrl=CtrlCargo">Retornar</a>
-</body>
-</html>
