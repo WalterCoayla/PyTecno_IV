@@ -12,7 +12,17 @@
   <!-- overlayScrollbars -->
   <!-- <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css"> -->
   <!-- Theme style -->
+  <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/jquery-toast.css">
   <link rel="stylesheet" href="./assets/css/adminlte.min.css">
+</head>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
+        <!-- ChartJS -->
+
+<script src="./assets/js/jsPDF/jspdf.debug.js"></script>
+<script src="./assets/js/jsPDF/jspdf.plugin.autotable3.1.1.min.js"></script>
+
 
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -41,5 +51,55 @@
             require_once './vistas/plantilla/footer.php';
             ?>
     </div>
+    <!-- Formularios modales -->
+<!-- Modal Formulario - Nuevo / Editar -->
+<div class="modal fade" id="modal-form" role="dialog">
+    <div class="modal-dialog">
+ 
+     <!-- Modal content-->
+     <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title"></h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" id="body-form">
+    
+        </div>
+        
+     </div>
+    </div>
+</div>
+<!-- Modal Eliminar -->
+<div class="modal fade" id="modal-eliminar" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="frm-eliminar"></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body" id="body-eliminar">
+                <div class="text-center">
+                    <h5>¿Estas seguro que deseas seguir con la eliminación?</h5>
+                    <h5 class="reg-eliminacion">Registro: </h5>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">            
+                <button type="button" class="btn btn-secundary" data-dismiss="modal">Cancelar</button>
+                <a type="button" class="btn btn-danger" id="btn-confirmar" href="" data-id="">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./assets/js/moment.min.js"></script>	
+
+<!-- Bootstrap 4 -->
+<script src="./assets/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="./assets/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="./assets/js/demo.js"></script>
+
+<?php require_once './vistas/plantilla/js.php'; ?>
 </body>
 </html>

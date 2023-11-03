@@ -22,11 +22,12 @@ class CtrlCargo extends Controlador {
     }
     public function nuevo(){
 
-        $home= $this->mostrar('cargos/formulario.php',null,true);
-        $datos = [
+        // $home= $this->mostrar('cargos/formulario.php',null,true);
+        $this->mostrar('cargos/formulario.php');
+        /* $datos = [
             'contenido'=>$home
-        ];
-        $this->mostrar('plantilla/home.php',$datos);
+        ]; */
+        // $this->mostrar('plantilla/home.php',$datos);
 
     }
     public function editar(){
@@ -36,11 +37,11 @@ class CtrlCargo extends Controlador {
         $datos = [
             'obj'=>$data['data'][0]
         ];
-        $home=$this->mostrar('cargos/formulario.php',$datos,true);
-        $datos = [
+        $this->mostrar('cargos/formulario.php',$datos);
+        /* $datos = [
             'contenido'=>$home
         ];
-        $this->mostrar('plantilla/home.php',$datos);
+        $this->mostrar('plantilla/home.php',$datos); */
 
     }
     public function guardar(){
